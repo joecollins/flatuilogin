@@ -1,0 +1,138 @@
+body {
+	background: #2D2F35;
+	width: 400px;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+	text-align: center;
+	color: #606468;
+	text-shadow: 1px 2px 3px #3B4148;
+	padding-bottom: 0px;
+}
+
+.darkform {
+	padding-top: 1em;	
+	border: none;
+}
+
+.dark {
+	color: #606468;
+}
+
+.darkinput {
+	padding-top: 5px;
+	height: 3em;
+	color: #606469;
+}
+
+	.darkinput ::-webkit-input-placeholder {
+		color: #606469;
+	}
+	.usernamefield ::-webkit-input-placeholder, .passwordfield ::-webkit-input-placeholder {
+		font-size: 13px;
+		padding-top: 5px;
+	}
+
+.form-darkinput {
+	height: 2em;
+	color: #fff;
+	background: #3B4148;
+	border: none;
+	border-radius: 0px;
+	padding-left: 20px;
+	min-height: 56px;
+
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+	.form-darkinput:focus {
+		border-color: none;
+	    box-shadow: none;
+	    outline: none;
+	}
+
+.sideicons {
+	background: #363B41;
+	border: none;
+	font-size: 30px;
+	border-radius: 0px;
+	min-width: 50px;
+
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+.darkbutton {
+	margin-top: 10px;
+	width: 100%;
+	background: #EA4C88;
+	color: #E3D8DD;
+	border: none;
+	/*height: 5em;*/
+	font-size: 23px;
+	/*font-size: 1em;*/
+	/*padding-top: 0.5em;*/
+	padding-bottom: 0.5em;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 3px #9FA3A6;
+
+
+	border-radius: 2px !important;
+}
+
+.candg {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.footer {
+	color: #767A7F;
+	text-align: center;	
+	font-size: 13px;
+	padding-top: 10px;
+}
+
+	.footer a {
+		color: #E3D8DD;
+	}
+
+	.footer a span {
+		color: #E3D8DD;
+	}
+
+	.footer a:hover {
+		text-decoration: none;
+		color: #76717f;
+	}
+
+.error {
+	color: #FFB3B3;
+}
+
+.email-validation, .password-validation, .gender-validation, .country-validation {
+	color: #FFA8A8;
+	font-style: italic;
+}
+
+.gender-validation {
+	margin-left: -25px;
+}
+
+.genderfield {
+	padding-left: 0px;
+	margin-left: -25px;
+}
+
+.genderfield input, .countryfield input {
+	font-size: 13px;
+	height: 1.5em;
+}
+@media (max-width: 1000px) {
+  .genderfield {
+	width: 100%;
+	float: right;
+  }
+}

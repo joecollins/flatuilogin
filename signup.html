@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for the icons: -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- My styles: -->
+    <link href="assets/css/mystyle.css" rel="stylesheet">
+
+    <!-- Open sans -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="header row">
+    <div class="col-md-1"></div>
+    <div class="col-md-9">
+      <h1>Sign up</h1>
+    </div>
+  </div>
+
+  <form role="form" id="emailForm">
+    <div class="darkform form-group">
+
+      <!-- Username -->
+      <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-9">
+
+            <div class="input-group darkinput usernamefield">
+              <span class="input-group-addon sideicons"> <span class="fa fa-user dark emailicon"></span> </span>
+              <input type="text" class="form-control form-darkinput" placeholder="Email Address" name="email" id="email">
+            </div>
+            <span class='email-validation'></span>
+
+          </div>
+      </div>
+
+      <!-- Password -->
+      <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-9">
+
+            <div class="input-group darkinput passwordfield">
+              <span class="input-group-addon sideicons password"> <span class="fa fa-lock dark passwordicon"></span> </span>
+              <input type="password" class="form-control form-darkinput" placeholder="Password" name="password" id='password'>
+            </div>
+            <span class='password-validation'></span>
+
+          </div>
+      </div>
+      
+      <!-- Country & gender -->
+      <div class="row candg">
+        <div class="col-md-1"></div>
+          <div class="col-md-5">
+
+            <div class="input-group darkinput countryfield">
+              <span class="input-group-addon sideicons country"> <span class="fa fa-globe dark countryicon"></span> </span>
+              <input type="text" class="form-control form-darkinput" placeholder="Country" name="country" id='country'>
+            </div>
+            <span class='country-validation'></span>
+
+          </div>
+          <div class="col-md-4">
+
+            <div class="input-group darkinput genderfield">
+              <span class="input-group-addon sideicons gender"> <span class="fa fa-child dark gendericon"></span> </span>
+              <input type="text" class="form-control form-darkinput" placeholder="Gender" name="gender" id='gender'>
+            </div>
+            <span class='g-validation'></span>
+
+          </div>
+      </div>
+      
+      <!-- Sign in button -->
+      <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-9">
+                
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default darkbutton" type="submit">Sign up</button>
+                  </span>
+                </div>
+        </div>
+
+    </div>
+  </form>
+
+  <!-- Sign up link -->
+  <div class="row">
+    <div class="col-md-1"></div>
+      <div class="col-md-9 footer">
+
+            Already a member? <a href="index.html">Sign in now <span class="fa fa-long-arrow-right"></span> </a>
+
+        </div>
+      </div>
+</div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    
+<script>
+  //Reset function:
+    $('#email, #password, #country, #gender').focus(function(){
+      $('.email-validation').html('');
+      $( "span.emailicon" ).removeClass( "error" );
+      $('.password-validation').html('');
+      $( "span.passwordicon" ).removeClass( "error" );      
+      $('.country-validation').html('');
+      $( "span.countryicon" ).removeClass( "error" );      
+      $('.gender-validation').html('');
+      $( "span.gendericon" ).removeClass( "error" );
+      $( "span.g-validation" ).removeClass("gender-validation");
+    })    
+
+  //Preemptive icon changing:
+    $('#gender').on("keyup", function(){
+      var gender = $("#gender").val();
+      if(gender == "m"){
+        $( "span.gendericon" ).removeClass( "fa-child" );
+        $( "span.gendericon" ).removeClass( "fa-female" );
+        $( "span.gendericon" ).addClass( "fa-male" );
+      } else if (gender == "f"){
+        $( "span.gendericon" ).removeClass( "fa-child" );
+        $( "span.gendericon" ).removeClass( "fa-male" );
+        $( "span.gendericon" ).addClass( "fa-female" );
+      } else {
+        $( "span.gendericon" ).addClass( "fa-child" );
+        $( "span.gendericon" ).removeClass( "fa-male" );
+        $( "span.gendericon" ).removeClass( "fa-female" );
+      }
+    })
+
+    //Submitting the form:
+    $('#emailForm').submit(function(s){
+        
+        var errors = 0;
+        
+        // Code to get a value from form field by id
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var gender = $('#gender').val();
+        var country = $('#country').val();
+        
+        if(email.length < 1){
+           // show length message
+          $('.email-validation').html('Email address can not be empty.'); 
+          $( "span.emailicon" ).addClass( "error" );
+          errors++;
+        } else if(email.indexOf("@") == -1) {
+          $('.email-validation').html('Email address is not valid.'); 
+          $( "span.emailicon" ).addClass( "error" );
+
+          errors++;
+        }
+        else {
+          $( "span.emailicon" ).removeClass( "error" );
+        }
+        
+        if(password.length < 1){
+           // show length message
+          $('.password-validation').html('Password can not be empty.'); 
+          $( "span.passwordicon" ).addClass( "error" );
+          errors++;
+        } else {
+          $( "span.passwordicon" ).removeClass( "error" );
+        }
+
+        if (country.length < 1){
+          $( "span.countryicon" ).addClass( "error" );
+          $('.country-validation').html('Country can not be empty.'); 
+          errors++
+        } else {
+          $( "span.countryicon" ).removeClass( "error" );
+        }
+
+        if(gender == "male"){
+          $( "span.gendericon" ).removeClass( "fa-child" );
+          $( "span.gendericon" ).addClass( "fa-male" );
+        } else if (gender == "female"){
+          $( "span.gendericon" ).removeClass( "fa-child" );
+          $( "span.gendericon" ).addClass( "fa-female" );
+        } else if (gender.length < 1){
+          $( "span.g-validation" ).addClass("gender-validation");
+
+          $( "span.gender-validation" ).html('Gender can not be empty.'); 
+          $( "span.gendericon" ).addClass( "error" );
+          errors++
+        } else {
+          $( "span.g-validation" ).removeClass("gender-validation");
+          $( "span.gendericon" ).removeClass( "error" );
+        }
+
+        return errors > 0 ? false : true;
+    });
+</script>
+</body>
+</html>

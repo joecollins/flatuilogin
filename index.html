@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for the icons: -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- My styles: -->
+    <link href="assets/css/mystyle.css" rel="stylesheet">
+
+    <!-- Open sans -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="header row">
+    <div class="col-md-1"></div>
+    <div class="col-md-9">
+      <h1>Sign in</h1>
+    </div>
+  </div>
+
+  <form role="form" id="emailForm">
+    <div class="darkform form-group">
+
+      <!-- Username -->
+      <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-9">
+
+            <div class="input-group darkinput usernamefield">
+              <span class="input-group-addon sideicons"> <span class="fa fa-user dark emailicon"></span> </span>
+              <input type="text" class="form-control form-darkinput" placeholder="Username" name="email" id="email">
+            </div>
+            <span class='email-validation'></span>
+
+          </div>
+      </div>
+
+      <!-- Password -->
+      <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-9">
+
+            <div class="input-group darkinput passswordfield">
+              <span class="input-group-addon sideicons password"> <span class="fa fa-lock dark passwordicon"></span> </span>
+              <input type="password" class="form-control form-darkinput" placeholder="Password" name="password" id='password'>
+            </div>
+            <span class='password-validation'></span>
+
+
+          </div>
+      </div>
+      
+      <!-- Sign in button -->
+      <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-9">
+                
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default darkbutton" type="submit">Sign in</button>
+                  </span>
+                </div>
+        </div>
+
+    </div>
+  </form>
+
+  <!-- Sign up link -->
+  <div class="row">
+    <div class="col-md-1"></div>
+      <div class="col-md-9 footer">
+
+            Not a member? <a href="signup.html">Sign up now <span class="fa fa-long-arrow-right"></span> </a>
+
+        </div>
+      </div>
+</div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+<script>
+    $('#email, #password').focus(function(){
+      $('.email-validation').html('');
+      $( "span.emailicon" ).removeClass( "error" );
+      $('.password-validation').html('');
+      $( "span.passwordicon" ).removeClass( "error" );
+    })    
+    $('#emailForm').submit(function(s){
+        
+        var errors = 0;
+        
+        // Code to get a value from form field by id
+        var email = $('#email').val();
+        var password = $('#password').val();
+        
+        if(email.length < 1){
+           // show length message
+          $('.email-validation').html('Email address can not be empty.'); 
+          $( "span.emailicon" ).addClass( "error" );
+          errors++;
+        } else if(email.indexOf("@") == -1) {
+          $('.email-validation').html('Email address is not valid.'); 
+          $( "span.emailicon" ).addClass( "error" );
+
+          errors++;
+        }
+        else {
+          $( "span.emailicon" ).removeClass( "error" );
+        }
+        
+        if(password.length < 1){
+           // show length message
+          $('.password-validation').html('Password can not be empty.'); 
+          $( "span.passwordicon" ).addClass( "error" );
+          errors++;
+        } else {
+          $( "span.passwordicon" ).removeClass( "error" );
+        }
+
+        return errors > 0 ? false : true;
+    });
+</script>
+</body>
+</html>
